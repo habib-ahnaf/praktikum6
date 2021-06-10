@@ -1,86 +1,86 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum6/models/soccer.dart';
 
-class SoccerWidget extends StatelessWidget {
+class SoccerWidget extends StatefulWidget {
   final List<Soccer> soccers;
 
   SoccerWidget({this.soccers});
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: soccers.length,
-        itemBuilder: (context, index) {
-          final soccer = soccers[index];
+  _SoccerWidgetState createState() => _SoccerWidgetState();
+}
 
-          return Container(
-              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              width: MediaQuery.of(context).size.width,
-              height: 180,
-              decoration: BoxDecoration(
-                color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(2),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.6),
-                    offset: Offset(
-                      0.0,
-                      10.0,
-                    ),
-                    blurRadius: 10.0,
-                    spreadRadius: -6.0,
-                  ),
-                ],
-              ),
-              child: Stack(
-                children: [
-                  Align(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 125.0, vertical: 5.0),
-                      child: Text(
-                        soccer.judul,
-                        style: TextStyle(
-                          fontSize: 17,
+class _SoccerWidgetState extends State<SoccerWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          // final soccer = 10;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          topRight: Radius.circular(12),
                         ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
+                        color: Colors.blue,
+                      ),
+                      width: double.infinity,
+                      // color: Colors.blue,
+                      child: Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          's',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ),
                     ),
-                    alignment: Alignment.topLeft,
-                  ),
-                  Align(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(5),
-                          margin: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                          child: Row(
-                            children: [
-                              Text(soccer.deskripsi),
-                            ],
-                          ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(12),
+                          bottomRight: Radius.circular(12),
                         ),
-                        Container(
-                          padding: EdgeInsets.all(5),
-                          margin: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                        )
-                      ],
+                        color: Colors.red,
+                      ),
+                      width: double.infinity,
+                      padding: EdgeInsets.all(15.0),
+                      height: 150,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'soccer.deskripsi',
+                            style: TextStyle(color: Colors.black),
+                          )
+                        ],
+                      ),
                     ),
-                    alignment: Alignment.bottomLeft,
-                  ),
-                ],
-              ));
-        });
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 6.0,
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 }
