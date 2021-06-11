@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<List<Soccer>> _fetchAllSoccer() async {
     final response =
-        await http.get("http://127.0.0.1:8000/api/v1/auth/artikle");
+        await http.get("http://localhost:8000/api/v1/auth/artikle");
 
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
