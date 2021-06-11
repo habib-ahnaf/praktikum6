@@ -3,12 +3,28 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:praktikum6/models/soccer.dart';
 import 'package:http/http.dart' as http;
+import 'package:praktikum6/screens/loginPage.dart';
 import 'package:praktikum6/widgets/soccerWidget.dart';
 
 void main() {
   runApp(MyApp());
 }
 
+class FirstApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Soccer News',
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
+      home: MyLoginPage(),
+    );
+  }
+}
+
+// yang dibawah gadipake, udah di pindah di soccerWidget
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
